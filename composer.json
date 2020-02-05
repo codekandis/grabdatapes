@@ -1,0 +1,58 @@
+{
+	"name": "codekandis/grabdatapes",
+	"description": "Fetches all downloadable content from `http://artmeetsscience.co.uk/tapes`",
+	"keywords": [
+		"php",
+		"grabdatapes"
+	],
+	"minimum-stability": "dev",
+	"prefer-stable": true,
+	"license": "MIT",
+	"authors": [
+		{
+			"name": "Christian Ramelow",
+			"email": "info@codekandis.net",
+			"homepage": "http://codekandis.net",
+			"role": "Developer"
+		}
+	],
+	"support": {
+		"email": "info@codekandis.net",
+		"issues": "https://github.com/codekandis/grabdatapes/issues",
+		"docs": "https://github.com/codekandis/grabdatapes/blob/master/README.md",
+		"source": "https://github.com/codekandis/grabdatapes/tree/master"
+	},
+	"require": {
+		"php": "^7.3",
+		"codekandis/tiphy": "^1.0"
+	},
+	"require-dev": {
+		"roave/security-advisories": "dev-master",
+		"sensiolabs/security-checker": "^6",
+		"phpunit/phpunit": "^8"
+	},
+	"repositories": {
+	},
+	"autoload": {
+		"psr-4": {
+			"CodeKandis\\GrabDaTapes\\": [
+				"config/",
+				"public/",
+				"src/",
+				"templates/"
+			]
+		}
+	},
+	"autoload-dev": {
+		"psr-4": {
+			"CodeKandis\\GrabDaTapes\\Tests\\": [
+				"tests/"
+			]
+		}
+	},
+	"scripts": {
+		"post-update-cmd": [
+			"[ ${COMPOSER_DEV_MODE} -eq 0 ] || vendor/bin/security-checker security:check composer.lock"
+		]
+	}
+}

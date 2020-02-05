@@ -1,0 +1,33 @@
+<?php declare( strict_types = 1 );
+?>
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>GrabDaTapes :: codekandis.net</title>
+	<style>
+		* {
+			font-family: verdana;
+			font-size: 10pt;
+			color: #0080a0;
+			text-decoration: none;
+			list-style: none;
+			white-space: nowrap;
+		}
+
+		*:hover {
+			color: #a08000;
+		}
+	</style>
+</head>
+<body>
+<ul>
+	<?php
+	foreach ( $this->data[ 'links' ] as $linkFetched )
+	{
+		echo '<li><a href="' . $linkFetched . '" target="_blank">' . $linkFetched . '</a></li>';
+	}
+	?>
+</ul>
+</body>
+</html>
