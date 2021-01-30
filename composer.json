@@ -5,14 +5,14 @@
 		"php",
 		"grabdatapes"
 	],
-	"minimum-stability": "dev",
+	"minimum-stability": "stable",
 	"prefer-stable": true,
 	"license": "MIT",
 	"authors": [
 		{
 			"name": "Christian Ramelow",
 			"email": "info@codekandis.net",
-			"homepage": "http://codekandis.net",
+			"homepage": "https://codekandis.net",
 			"role": "Developer"
 		}
 	],
@@ -23,15 +23,14 @@
 		"source": "https://github.com/codekandis/grabdatapes/tree/master"
 	},
 	"require": {
-		"php": "^7.3",
-		"codekandis/tiphy": "^1.0"
+		"php": "^7.4",
+		"codekandis/tiphy": "^0",
+		"codekandis/sentry-client": "1",
+		"codekandis/tiphy-sentry-client-integration": "^0"
 	},
 	"require-dev": {
 		"roave/security-advisories": "dev-master",
-		"sensiolabs/security-checker": "^6",
-		"phpunit/phpunit": "^8"
-	},
-	"repositories": {
+		"codekandis/phpunit": "^3"
 	},
 	"autoload": {
 		"psr-4": {
@@ -49,10 +48,5 @@
 				"tests/"
 			]
 		}
-	},
-	"scripts": {
-		"post-update-cmd": [
-			"[ ${COMPOSER_DEV_MODE} -eq 0 ] || vendor/bin/security-checker security:check composer.lock"
-		]
 	}
 }
