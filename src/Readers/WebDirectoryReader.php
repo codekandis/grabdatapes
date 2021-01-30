@@ -5,11 +5,12 @@ use DOMDocument;
 use DOMElement;
 use DOMXPath;
 use Traversable;
+use function file_get_contents;
 
 class WebDirectoryReader implements WebDirectoryReaderInterface
 {
 	/** @var string */
-	private $url;
+	private string $url;
 
 	public function __construct( string $url )
 	{
