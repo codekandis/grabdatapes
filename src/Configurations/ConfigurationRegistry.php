@@ -11,19 +11,10 @@ class ConfigurationRegistry extends AbstractConfigurationRegistry
 
 	protected function initialize(): void
 	{
-		$this->setPlainSentryClientConfiguration(
-			require dirname( __DIR__, 2 ) . '/config/sentryClient.php'
-		);
-		$this->setPlainRoutesConfiguration(
-			( require dirname( __DIR__, 2 ) . '/config/routes.php' )
-			+ ( require __DIR__ . '/Plain/routes.php' )
-		);
-		$this->setPlainTemplateRendererConfiguration(
-			require __DIR__ . '/Plain/templateRenderer.php'
-		);
-		$this->setPlainWebDirectoryConfiguration(
-			require dirname( __DIR__, 2 ) . '/config/webDirectory.php'
-		);
+		$this->initializeSentryClientConfiguration();
+		$this->initializeRoutesConfiguration();
+		$this->initializeTemplateRendererConfiguration();
+		$this->initializeWebDirectoryConfiguration();
 	}
 
 	public function getWebDirectoryConfiguration(): WebDirectoryConfigurationInterface
@@ -34,5 +25,35 @@ class ConfigurationRegistry extends AbstractConfigurationRegistry
 	public function setPlainWebDirectoryConfiguration( array $plainWebDirectoryConfiguration ): void
 	{
 		$this->webDirectoryConfiguration = new WebDirectoryConfiguration( $plainWebDirectoryConfiguration );
+	}
+
+	private function initializeSentryClientConfiguration()
+	{
+		$this->setPlainSentryClientConfiguration(
+			( require __DIR__ . '/Plain/sentryClient.php' )
+			+ ( require dirname( __DIR__, 2 ) . '/config/sentryClient.php' )
+		);
+	}
+
+	private function initializeRoutesConfiguration()
+	{
+		$this->setPlainRoutesConfiguration(
+			( require __DIR__ . '/Plain/routes.php' )
+			+ ( require dirname( __DIR__, 2 ) . '/config/routes.php' )
+		);
+	}
+
+	private function initializeTemplateRendererConfiguration()
+	{
+		$this->setPlainTemplateRendererConfiguration(
+			require __DIR__ . '/Plain/templateRenderer.php'
+		);
+	}
+
+	private function initializeWebDirectoryConfiguration()
+	{
+		$this->setPlainWebDirectoryConfiguration(
+			require dirname( __DIR__, 2 ) . '/config/webDirectory.php'
+		);
 	}
 }
