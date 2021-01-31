@@ -2,5 +2,5 @@
 namespace CodeKandis\TradioApi\Configurations\Plain;
 
 return [
-	'release' => 'dev-development'
+	'release' => '0.2.0'
 ];
